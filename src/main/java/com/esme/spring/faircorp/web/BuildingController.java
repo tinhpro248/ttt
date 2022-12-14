@@ -35,8 +35,8 @@ public class BuildingController {
     }
 
     @GetMapping(path = "/{id}")
-    public BuildingDto findById(@PathVariable Long id) {
-        return buildingDao.findById(id).map(building -> new BuildingDto(building)).orElse(null);
+    public String findById(@PathVariable Long id) {
+        return "HAHA";
     }
 
     @PostMapping
