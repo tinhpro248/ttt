@@ -3,6 +3,8 @@ package com.esme.spring.faircorp.web;
 import com.esme.spring.faircorp.model.Building;
 import com.esme.spring.faircorp.repository.BuildingDao;
 import com.esme.spring.faircorp.web.dto.BuildingDto;
+import com.esme.spring.faircorp.web.dto.LoginDTO;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -20,6 +22,38 @@ import java.util.stream.Collectors;
 public class BuildingController {
 
     private BuildingDao buildingDao;
+
+    @PutMapping("user/login")
+    public LoginDTO login(@RequestBody String userName, @RequestBody String password){
+        return new LoginDTO(1, "Dương Bá Tình", true, null);
+    }
+//    @PutMapping("user/register")
+//    public LoginReponse register(@RequestBody UserRequest user){
+//        return userService.register(user);
+//    }
+//
+//    @GetMapping("user/profile")
+//    public ProfileDTO profile(@Param("id") int id){
+//        return new ProfileReponse();
+//    }
+//
+//    @GetMapping("")
+//    public boolean ff(){
+//        return true;
+//    }
+//
+//    @PostMapping("user/edit")
+//    public ProfileDTO editProfile(@RequestBody ProfileReponse user){
+//        return new ProfileReponse();
+//    }
+
+    @PostMapping("user/edit-password")
+    public boolean editPassword(@Param("id") int id, @RequestBody String password, @RequestBody String newPassword){
+        return true;
+    }
+
+
+
 
     public BuildingController(BuildingDao buildingDao) {
         this.buildingDao = buildingDao;
