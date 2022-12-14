@@ -1,15 +1,9 @@
 package com.esme.spring.faircorp.web;
 
-import com.esme.spring.faircorp.model.Light;
-import com.esme.spring.faircorp.model.Status;
-import com.esme.spring.faircorp.repository.LightDao;
-import com.esme.spring.faircorp.repository.RoomDao;
-import com.esme.spring.faircorp.web.dto.LightDto;
+//import com.esme.spring.faircorp.repository.RoomDao;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author devmind

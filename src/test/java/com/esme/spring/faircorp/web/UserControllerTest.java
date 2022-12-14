@@ -1,8 +1,5 @@
 package com.esme.spring.faircorp.web;
 
-import com.esme.spring.faircorp.model.Building;
-import com.esme.spring.faircorp.model.Status;
-import com.esme.spring.faircorp.repository.BuildingDao;
 import com.esme.spring.faircorp.web.dto.BuildingDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
@@ -21,25 +18,20 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.tuple;
 
 /**
  * @author devmind
  */
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(BuildingController.class)
-public class BuildingControllerTest {
+@WebMvcTest(UserController.class)
+public class UserControllerTest {
 
     @Autowired
     private MockMvc restService;

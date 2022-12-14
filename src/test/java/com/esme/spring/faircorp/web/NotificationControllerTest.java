@@ -1,11 +1,6 @@
 package com.esme.spring.faircorp.web;
 
-import com.esme.spring.faircorp.model.Building;
-import com.esme.spring.faircorp.model.Room;
-import com.esme.spring.faircorp.repository.BuildingDao;
 import com.esme.spring.faircorp.repository.RoomDao;
-import com.esme.spring.faircorp.repository.RoomDao;
-import com.esme.spring.faircorp.web.dto.RoomDto;
 import com.esme.spring.faircorp.web.dto.RoomDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
@@ -30,14 +25,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
-
 /**
  * @author devmind
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(RoomController.class)
-public class RoomControllerTest {
+@WebMvcTest(NotificationController.class)
+public class NotificationControllerTest {
 
     @Autowired
     private MockMvc restService;

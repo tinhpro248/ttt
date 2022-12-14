@@ -1,9 +1,5 @@
 package com.esme.spring.faircorp.web;
 
-import com.esme.spring.faircorp.model.Building;
-import com.esme.spring.faircorp.model.Light;
-import com.esme.spring.faircorp.model.Room;
-import com.esme.spring.faircorp.model.Status;
 import com.esme.spring.faircorp.repository.LightDao;
 import com.esme.spring.faircorp.repository.RoomDao;
 import com.esme.spring.faircorp.web.dto.LightDto;
@@ -34,8 +30,8 @@ import java.util.Optional;
  * @author devmind
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(LightController.class)
-public class LightControllerTest {
+@WebMvcTest(ManageController.class)
+public class ManageControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

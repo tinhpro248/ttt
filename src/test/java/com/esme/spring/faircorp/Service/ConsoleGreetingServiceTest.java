@@ -1,4 +1,4 @@
-package com.esme.spring.faircorp.hello;
+package com.esme.spring.faircorp.Service;
 
 import org.hamcrest.Matchers;
 import org.junit.Rule;
