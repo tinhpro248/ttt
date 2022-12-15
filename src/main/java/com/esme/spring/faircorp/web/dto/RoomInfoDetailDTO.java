@@ -11,7 +11,17 @@ public class RoomInfoDetailDTO {
     int numberOfTenants;
     Date rentFrom;
     int numRents;
+
+    String sex;
     List<ServiceI> serviceIList;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     public int getId() {
         return id;
@@ -80,7 +90,7 @@ public class RoomInfoDetailDTO {
     public RoomInfoDetailDTO() {
     }
 
-    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, List<ServiceI> serviceIList) {
+    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, String sex, List<ServiceI> serviceIList) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -88,6 +98,7 @@ public class RoomInfoDetailDTO {
         this.numberOfTenants = numberOfTenants;
         this.rentFrom = rentFrom;
         this.numRents = numRents;
+        this.sex = sex;
         this.serviceIList = serviceIList;
     }
 }

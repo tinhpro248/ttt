@@ -133,11 +133,6 @@ public class ManageController {
         return manageService.getServiceList(id);
     }
 
-    @GetMapping("service/room")
-    public List<ServiceListReponse> servicesRoom(@Param("id") int id){
-        return manageService.getServiceListRoom(id);
-    }
-
 
 
 //    @GetMapping("service/{id}")

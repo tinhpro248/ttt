@@ -16,23 +16,12 @@ public class Service {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "type")
-    private int type;
-
     @Column(name = "detail")
     private String detail;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users users;
-
-    @ManyToMany
-    @JoinTable(name = "room_service", joinColumns = {
-            @JoinColumn(name = "room_id")
-    }, inverseJoinColumns = {
-            @JoinColumn(name = "service_id")
-    })
-    private List<Room> roomList;
+    @JoinColumn(name = "room_id")
+    private Room room;
 
     public int getId() {
         return id;
@@ -58,14 +47,6 @@ public class Service {
         this.price = price;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
     public String getDetail() {
         return detail;
     }
@@ -74,31 +55,21 @@ public class Service {
         this.detail = detail;
     }
 
-    public Users getUsers() {
-        return users;
+    public Room getRoomList() {
+        return room;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public List<Room> getRoomList() {
-        return roomList;
-    }
-
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
+    public void setRoomList(Room room) {
+        this.room = room;
     }
 
     public Service() {
     }
 
-    public Service(String name, int price, int type, String detail, Users users, List<Room> roomList) {
+    public Service(String name, int price, String detail, Room room) {
         this.name = name;
         this.price = price;
-        this.type = type;
         this.detail = detail;
-        this.users = users;
-        this.roomList = roomList;
+        this.room = room;
     }
 }

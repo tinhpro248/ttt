@@ -42,7 +42,7 @@ public class Room {
     @OneToOne(mappedBy = "room", cascade = CascadeType.ALL)
     private Tus tus;
 
-    @ManyToMany(mappedBy = "roomList", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Service> serviceList;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)

@@ -41,7 +41,7 @@ public class ManageService {
             for(com.esme.spring.faircorp.model.Service item : rO.get().getServiceList()){
                 serviceIList.add(new ServiceI(item.getName(), item.getPrice()));
             }
-            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(),serviceIList);
+            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), rO.get().getSex(), serviceIList);
         }
         return null;
     }
@@ -173,21 +173,6 @@ public class ManageService {
 
     public List<ServiceListDTO> getServiceList(int id){
         return serviceRepository.getListService(id);
-    }
-
-    public List<ServiceListReponse> getServiceListRoom(int id){
-        Optional<Room> r = roomRepository.findById(id);
-        if(r.isPresent()){
-            if(!r.get().getServiceList().isEmpty()){
-                List<ServiceListReponse> ls = new java.util.ArrayList<>(Collections.emptyList());
-                for(com.esme.spring.faircorp.model.Service item : r.get().getServiceList()){
-                    ls.add(new ServiceListReponse(item.getId(), item.getName(), item.getPrice(), item.getType()));
-                }
-                return ls;
-            }
-            return Collections.emptyList();
-        }
-        return Collections.emptyList();
     }
 
     public List<RoomTusReponse> getTusList(int id){

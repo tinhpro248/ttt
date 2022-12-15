@@ -66,9 +66,6 @@ public class Users {
     @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private Info info;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    private List<Service> serviceList;
-
     public int getId() {
         return id;
     }
@@ -221,14 +218,6 @@ public class Users {
         this.info = info;
     }
 
-    public List<Service> getServiceList() {
-        return serviceList;
-    }
-
-    public void setServiceList(List<Service> serviceList) {
-        this.serviceList = serviceList;
-    }
-
     public Users() {
     }
 
@@ -260,6 +249,5 @@ public class Users {
         this.tusSaveList = tusSaveList;
         this.tenants = tenants;
         this.info = info;
-        this.serviceList = serviceList;
     }
 }

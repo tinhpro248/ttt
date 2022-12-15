@@ -11,11 +11,6 @@ INSERT INTO users(
 	id, cccd, birthday, email, image, name, password, phonenum, type, username)
 	VALUES (4, '123456789', '2001-04-10 00:00:00', 'duongtinh@gmail.com', null, 'Dương Bá Tình', '123456', '1234567891', false, 'toannguyen');
 
---Service
-INSERT INTO service(
-	id, detail, name, price, type, user_id)
-	VALUES (1, 'Chi phí cho bảo vệ hàng tháng để giữ xe và quản lí cổng ra vào', 'Bảo vệ', 15000, 0, 1);
-
 --Room
 INSERT INTO room(
 	id, area, image, name, number_of_tenants, price, rent_from, sex, users_id)
@@ -26,6 +21,11 @@ INSERT INTO room(
 INSERT INTO room(
 	id, area, image, name, number_of_tenants, price, rent_from, sex, users_id)
 	VALUES (3, 20, null, 'P003', 2, 1000000, '2022-10-10 10:20:00', 'Nam/Nữ', 1);
+
+--Service
+INSERT INTO service(
+	id, detail, name, price, room_id)
+	VALUES (1, 'Chi phí cho bảo vệ hàng tháng để giữ xe và quản lí cổng ra vào', 'Bảo vệ', 15000, 1);
 
 --Tenants
 INSERT INTO tenants(

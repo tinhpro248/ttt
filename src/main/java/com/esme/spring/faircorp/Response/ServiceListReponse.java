@@ -4,7 +4,6 @@ public class ServiceListReponse {
     int id;
     String name;
     int price;
-    int type;
 
     public int getId() {
         return id;
@@ -30,21 +29,13 @@ public class ServiceListReponse {
         this.price = price;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
 
     public ServiceListReponse() {
     }
 
-    public ServiceListReponse(int id, String name, int price, int type) {
+    public ServiceListReponse(int id, String name, int price) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.type = type;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
-    @Query("select s.id as id, s.name as name, s.price as price, s.type as type from Service s where s.users.id = :id")
+    @Query("select s.id as id, s.name as name, s.price as price from Service s where s.room.id = :id")
     List<ServiceListDTO> getListService(int id);
 
 }
