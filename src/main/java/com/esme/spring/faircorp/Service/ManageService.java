@@ -369,4 +369,8 @@ public class ManageService {
         return null;
     }
 
+    public List<TusDTO> tus(){
+        return tusRepository.getAllTus();
+    }
+
 }

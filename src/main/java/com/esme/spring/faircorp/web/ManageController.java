@@ -196,4 +196,9 @@ public class ManageController {
     public RoomDetailRequest addRoom(@RequestBody RoomDetailRequest roomDetailRequest){
         return manageService.addRoom(roomDetailRequest);
     }
+
+    @GetMapping("tus/all")
+    public List<TusDTO> roomTusReponses(){
+        return manageService.tus();
+    }
 }
