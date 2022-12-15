@@ -357,7 +357,7 @@ public class ManageService {
     public RoomDetailRequest addRoom(RoomDetailRequest roomDetailRequest){
         Optional<Users> u = userRepository.findById(roomDetailRequest.getUserId());
         if(u.isPresent()) {
-            Room newR = new Room(roomDetailRequest.getName(), roomDetailRequest.getArea(),roomDetailRequest.getPrice(), roomDetailRequest.getNumberOfTenants(), roomDetailRequest.getRentFrom(), roomDetailRequest.getSex(), roomDetailRequest.getImage(), u.get());
+            Room newR = new Room(roomDetailRequest.getName(), roomDetailRequest.getArea(),roomDetailRequest.getPrice(), roomDetailRequest.getNumberOfTenants(), null, roomDetailRequest.getSex(), roomDetailRequest.getImage(), u.get());
             roomRepository.save(newR);
             return roomDetailRequest;
         }
