@@ -339,4 +339,8 @@ public class ManageService {
         return false;
     }
 
+    public List<TenantListDTO> getTenantsByRoom(int id){
+        return tenantsRepository.getAllTenantByRoom(id);
+    }
+
 }

@@ -39,6 +39,11 @@ public class ManageController {
         return manageService.getTenantList(id);
     }
 
+    @GetMapping("tenant/room")
+    public List<TenantListDTO> tenantsListByRoom(@Param("id") int id){
+        return manageService.getTenantsByRoom(id);
+    }
+
     @GetMapping("tenant/{id}")
     public TenantDTO tenant(@PathVariable int id){
         return manageService.getTenant(id);

@@ -14,6 +14,10 @@ public interface TenantsRepository extends JpaRepository<Tenants, Integer> {
             "Tenants t where t.users.id = :userId")
     List<TenantListDTO> getAllTenantByUserId(int userId);
 
+    @Query("select t.id as id, t.time as time, t.usersParent.name as name, t.usersParent.phoneNum as phone, t.users.image as image from " +
+            "Tenants t where t.room.id = :id")
+    List<TenantListDTO> getAllTenantByRoom(int id);
+
     @Query("select t.id as id, t.usersParent.name as name, t.usersParent.phoneNum as phone, t.usersParent.email as email," +
             "t.usersParent.CCCD as cCCD, t.usersParent.birthday as birthday, t.usersParent.image as image, t.room.name as room, " +
             "t.time as time from Tenants t where t.id = :id")
