@@ -211,4 +211,9 @@ public class ManageController {
     public List<TusDTO> getSaveTus(@Param("id") int id){
         return manageService.getTusSave(id);
     }
+
+    @PostMapping("incident/status")
+    public boolean incidentEditStatus(@Param("status") String status, @Param("id") int id){
+        return manageService.updateStatusIncident(status, id);
+    }
 }

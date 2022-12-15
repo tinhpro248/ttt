@@ -395,4 +395,15 @@ public class ManageService {
         }
         return null;
     }
+
+    public boolean updateStatusIncident(String status, int id){
+        Optional<Incident> iO = incidentRepository.findById(id);
+        if(iO.isPresent()){
+            Incident i = iO.get();
+            i.setStatus(status);
+            incidentRepository.save(i);
+            return true;
+        }
+        return false;
+    }
 }
