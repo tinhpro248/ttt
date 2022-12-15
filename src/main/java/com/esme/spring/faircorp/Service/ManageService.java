@@ -108,6 +108,17 @@ public class ManageService {
         return billRepository.getList2Bill(id);
     }
 
+    public List<BillListDTO> getList2BillRoom(int id){
+        Optional<Users> u = userRepository.findById(id);
+        if(u.isPresent()){
+            if(u.get().getTenants() != null) {
+                int rId = u.get().getTenants().getRoom().getId();
+                return billRepository.getList2BillRoom(id);
+            }
+        }
+        return null;
+    }
+
     public List<BillListDTO> getListAllBill(int id, int status){
         if(status == 0)
             return billRepository.getListBill(id, "Chưa thanh toán");

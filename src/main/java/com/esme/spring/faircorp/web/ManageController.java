@@ -65,6 +65,11 @@ public class ManageController {
         return manageService.getList2Bill(id);
     }
 
+    @GetMapping("bill/tenants")
+    public List<BillListDTO> billsRoom(@Param("id") int id){
+        return manageService.getList2BillRoom(id);
+    }
+
     @GetMapping("revenue/all")
     public List<RevenueListDTO> revenueAll(@Param("id") int id){
         return manageService.getRevenuesAll(id);

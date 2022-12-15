@@ -14,6 +14,10 @@ public interface BillRepository extends JpaRepository<Bill, Integer> {
             ", r.status as status from Bill r where r.room.users.id = :id order by startTime desc")
     List<BillListDTO> getList2Bill(int id);
 
+    @Query("select r.type as type , r.endTime as endTime, r.id as id, r.code as code, r.price as price, r.room.name as room, r.startTime as startTime" +
+            ", r.status as status from Bill r where r.room.id = :id order by startTime desc")
+    List<BillListDTO> getList2BillRoom(int id);
+
     @Query("select r.id as id, r.code as code, r.price as price, r.startTime as startTime, r.room.name as room, r.type as type, r.endTime as endTime" +
             ", r.status as status from Bill r where r.room.users.id = :id and r.status = :status order by startTime desc")
     List<BillListDTO> getListBill(int id, String status);
