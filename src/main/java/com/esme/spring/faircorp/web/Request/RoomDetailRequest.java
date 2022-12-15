@@ -1,9 +1,9 @@
-package com.esme.spring.faircorp.web.dto;
+package com.esme.spring.faircorp.web.Request;
 
 import java.util.Date;
 import java.util.List;
 
-public class RoomInfoDetailDTO {
+public class RoomDetailRequest {
     int id;
     String name;
     String area;
@@ -15,7 +15,8 @@ public class RoomInfoDetailDTO {
     Byte[] image;
 
     String sex;
-    List<ServiceI> serviceIList;
+
+    int userId;
 
     public Byte[] getImage() {
         return image;
@@ -89,18 +90,18 @@ public class RoomInfoDetailDTO {
         this.numRents = numRents;
     }
 
-    public List<ServiceI> getServiceIList() {
-        return serviceIList;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setServiceIList(List<ServiceI> serviceIList) {
-        this.serviceIList = serviceIList;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public RoomInfoDetailDTO() {
+    public RoomDetailRequest() {
     }
 
-    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, Byte[] image, String sex, List<ServiceI> serviceIList) {
+    public RoomDetailRequest(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, Byte[] image, String sex, int userId) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -110,6 +111,6 @@ public class RoomInfoDetailDTO {
         this.numRents = numRents;
         this.image = image;
         this.sex = sex;
-        this.serviceIList = serviceIList;
+        this.userId = userId;
     }
 }

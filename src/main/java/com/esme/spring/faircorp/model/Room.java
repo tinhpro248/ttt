@@ -213,4 +213,15 @@ public class Room {
         this.billList = billList;
         this.incidentList = incidentList;
     }
+
+    public Room(String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, Byte[] image, Users users) {
+        this.name = name;
+        this.area = area;
+        this.price = price;
+        this.numberOfTenants = numberOfTenants;
+        this.rentFrom = rentFrom;
+        this.sex = sex;
+        this.image = image;
+        this.users = users;
+    }
 }

@@ -3,6 +3,7 @@ package com.esme.spring.faircorp.web;
 import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.Service.ManageService;
 import com.esme.spring.faircorp.web.Request.IncidentRequest;
+import com.esme.spring.faircorp.web.Request.RoomDetailRequest;
 import com.esme.spring.faircorp.web.Request.ServiceRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -179,5 +180,10 @@ public class ManageController {
     @GetMapping("room/tus/{id}/vote")
     public boolean voteInfo(@Param("vote") int vote, @PathVariable int id){
         return manageService.vote(id, vote);
+    }
+
+    @PutMapping("room")
+    public RoomDetailRequest addRoom(@RequestBody RoomDetailRequest roomDetailRequest){
+        return manageService.addRoom(roomDetailRequest);
     }
 }

@@ -79,7 +79,7 @@ INSERT INTO incident(
 	VALUES (2, null, 'Hỏng vòi nước', 'Đang xử lý', '2022-11-10 10:34:00', 'Hỏng vòi nước', 1);
 INSERT INTO incident(
 	id, image, note, status, time, type, room_id)
-	VALUES (3, null, 'Hỏng ổ cắm điện', 'Chờ xử lý', '2022-12-10 10:10:00', 'Hỏng ổ cắm điện', 1);
+	VALUES (3, null, 'Hỏng ổ cắm điện', 'Đang đợi xử lý', '2022-12-10 10:10:00', 'Hỏng ổ cắm điện', 1);
 
 --Bill
 INSERT INTO bill(
@@ -96,7 +96,7 @@ INSERT INTO bill(
 	VALUES (4, '#124', '2022-11-30 00:00:00', '?', 100000, '2022-10-10 00:00:00', 'Đã thanh toán', 'Tiền điện nước', 1);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (5, '#125', '2022-11-30 00:00:00', '?', 1000000, '2022-11-10 00:00:00', 'Thanh toán trễ', 'Tiền phòng', 2);
+	VALUES (5, '#125', '2022-11-30 00:00:00', '?', 1000000, '2022-11-10 00:00:00', 'Trễ hạn', 'Tiền phòng', 2);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
 	VALUES (6, '#126', '2022-12-30 00:00:00', '?', 100000, '2022-12-10 00:00:00', 'Chưa thanh toán', 'Tiền điện nước', 1);

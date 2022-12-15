@@ -4,6 +4,7 @@ import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.model.*;
 import com.esme.spring.faircorp.repository.*;
 import com.esme.spring.faircorp.web.Request.IncidentRequest;
+import com.esme.spring.faircorp.web.Request.RoomDetailRequest;
 import com.esme.spring.faircorp.web.Request.ServiceRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class ManageService {
             for(com.esme.spring.faircorp.model.Service item : rO.get().getServiceList()){
                 serviceIList.add(new ServiceI(item.getName(), item.getPrice()));
             }
-            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), rO.get().getSex(), serviceIList);
+            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), rO.get().getImage(), rO.get().getSex(), serviceIList);
         }
         return null;
     }
@@ -283,9 +284,12 @@ public class ManageService {
 
     public IncidentRequest addIncident(IncidentRequest incidentDTO){
         Optional<Room> rO = roomRepository.findById(incidentDTO.getRoom());
-        Incident i = new Incident(incidentDTO.getTime(), incidentDTO.getNote(), incidentDTO.getType(), incidentDTO.getImage(), incidentDTO.getStatus(), rO.orElse(null));
-        incidentRepository.save(i);
-        return incidentDTO;
+        if(rO.isPresent()) {
+            Incident i = new Incident(new Date(), incidentDTO.getNote(), incidentDTO.getType(), incidentDTO.getImage(), "Đang đợi xử lý", rO.get());
+            incidentRepository.save(i);
+            return incidentDTO;
+        }
+        else return null;
     }
 
     public SeviceDetailDTO getService(int id){
@@ -331,6 +335,16 @@ public class ManageService {
 
     public List<TenantListDTO> getTenantsByRoom(int id){
         return tenantsRepository.getAllTenantByRoom(id);
+    }
+
+    public RoomDetailRequest addRoom(RoomDetailRequest roomDetailRequest){
+        Optional<Users> u = userRepository.findById(roomDetailRequest.getUserId());
+        if(u.isPresent()) {
+            Room newR = new Room(roomDetailRequest.getName(), roomDetailRequest.getArea(),roomDetailRequest.getPrice(), roomDetailRequest.getNumberOfTenants(), roomDetailRequest.getRentFrom(), roomDetailRequest.getSex(), roomDetailRequest.getImage(), u.get());
+            roomRepository.save(newR);
+            return roomDetailRequest;
+        }
+        return null;
     }
 
 }
