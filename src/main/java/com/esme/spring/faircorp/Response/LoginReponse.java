@@ -4,7 +4,7 @@ public class LoginReponse {
     private int id;
     private String name;
     private boolean type;
-    private Byte[] image;
+    private byte[] image;
 
     public int getId() {
         return id;
@@ -30,18 +30,18 @@ public class LoginReponse {
         this.type = type;
     }
 
-    public Byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
     public LoginReponse() {
     }
 
-    public LoginReponse(int id, String name, boolean type, Byte[] image) {
+    public LoginReponse(int id, String name, boolean type, byte[] image) {
         this.id = id;
         this.name = name;
         this.type = type;

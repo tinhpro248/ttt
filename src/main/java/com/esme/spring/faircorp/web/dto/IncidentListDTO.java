@@ -7,7 +7,7 @@ public interface IncidentListDTO {
     String getRoom();
     String getType();
     Date getTime();
-    Byte[] getImage();
+    byte[] getImage();
 
     String getStatus();
 }

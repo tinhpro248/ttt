@@ -17,7 +17,7 @@ public class ProfileDTO {
 
     private String CCCD;
 
-    private Byte[] image;
+    private byte[] image;
 
     public int getId() {
         return id;
@@ -75,18 +75,18 @@ public class ProfileDTO {
         this.CCCD = CCCD;
     }
 
-    public Byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
     public ProfileDTO() {
     }
 
-    public ProfileDTO(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, Byte[] image) {
+    public ProfileDTO(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, byte[] image) {
         this.id = id;
         this.name = name;
         this.type = type;

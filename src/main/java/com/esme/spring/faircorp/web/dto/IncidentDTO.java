@@ -8,6 +8,6 @@ public interface IncidentDTO {
     String getType();
     Date getTime();
     String getNote();
-    Byte[] getImage();
+    byte[] getImage();
     String getStatus();
 }

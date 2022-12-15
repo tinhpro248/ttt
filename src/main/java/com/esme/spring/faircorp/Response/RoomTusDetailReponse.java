@@ -7,12 +7,12 @@ public class RoomTusDetailReponse {
     int id;
     String name;
     int price;
-    Byte[] image;
+    byte[] image;
     String address;
     Date time;
     String userName;
     String phone;
-    Byte[] userImage;
+    byte[] userImage;
     float vote;
     String note;
 
@@ -40,11 +40,11 @@ public class RoomTusDetailReponse {
         this.price = price;
     }
 
-    public Byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -80,11 +80,11 @@ public class RoomTusDetailReponse {
         this.phone = phone;
     }
 
-    public Byte[] getUserImage() {
+    public byte[] getUserImage() {
         return userImage;
     }
 
-    public void setUserImage(Byte[] userImage) {
+    public void setUserImage(byte[] userImage) {
         this.userImage = userImage;
     }
 
@@ -107,7 +107,7 @@ public class RoomTusDetailReponse {
     public RoomTusDetailReponse() {
     }
 
-    public RoomTusDetailReponse(int id, String name, int price, Byte[] image, String address, Date time, String userName, String phone, Byte[] userImage, float vote, String note) {
+    public RoomTusDetailReponse(int id, String name, int price, byte[] image, String address, Date time, String userName, String phone, byte[] userImage, float vote, String note) {
         this.id = id;
         this.name = name;
         this.price = price;

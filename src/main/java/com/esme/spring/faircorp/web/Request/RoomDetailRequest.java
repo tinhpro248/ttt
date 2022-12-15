@@ -12,17 +12,17 @@ public class RoomDetailRequest {
     Date rentFrom;
     int numRents;
 
-    Byte[] image;
+    byte[] image;
 
     String sex;
 
     int userId;
 
-    public Byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -101,7 +101,7 @@ public class RoomDetailRequest {
     public RoomDetailRequest() {
     }
 
-    public RoomDetailRequest(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, Byte[] image, String sex, int userId) {
+    public RoomDetailRequest(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, byte[] image, String sex, int userId) {
         this.id = id;
         this.name = name;
         this.area = area;

@@ -4,5 +4,5 @@ public interface RoomTusDTO {
     int getId();
     int getPrice();
     int getNum();
-    Byte[] getImage();
+    byte[] getImage();
 }
