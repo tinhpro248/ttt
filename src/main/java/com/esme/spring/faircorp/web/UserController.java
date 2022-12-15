@@ -69,4 +69,9 @@ public class UserController {
 
         return String.valueOf(randomNum);
     }
+
+    @GetMapping("aa")
+    public boolean aaa(@Param("id") int id, @Param("ss") String ss){
+        return userService.s(ss, id);
+    }
 }
