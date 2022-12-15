@@ -251,16 +251,11 @@ public class ManageService {
     }
 
     public BillDetailReponse addBill(BillDetailReponse bill){
-        Optional<Bill> bO = billRepository.findById(bill.getId());
         Optional<Room> rO = roomRepository.findById(bill.getIdRoom());
-        if(bO.isPresent()){
-            return null;
-        }
-        else{
-            Bill newB = new Bill(bill.getCode(), bill.getType(), bill.getPrice(), bill.getNote(), bill.getStartTime(), bill.getEndTime(), "Chưa thanh toán",rO.orElse(null));
-            billRepository.save(newB);
-            return bill;
-        }
+
+        Bill newB = new Bill(bill.getCode(), bill.getType(), bill.getPrice(), bill.getNote(), bill.getStartTime(), bill.getEndTime(), "Chưa thanh toán",rO.orElse(null));
+        billRepository.save(newB);
+        return bill;
     }
 
     public boolean payBill(int id){
