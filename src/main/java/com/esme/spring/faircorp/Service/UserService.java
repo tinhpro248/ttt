@@ -23,13 +23,13 @@ public class UserService {
     }
 
     public LoginReponse register(UserRequest user){
-        if(userRepository.registerCheck(user.getUsername())){
+        if(userRepository.registerCheck(user.getUsername()).isPresent()){
+            return null;
+        }
+        else{
             Users newUser = new Users(user.getUsername(), user.getPassword(), user.getName() ,user.getEmail(), user.getPhone(), user.isType());
             Users u = userRepository.save(newUser);
             return new LoginReponse(u.getId(), u.getName(), u.isType(), u.getImage());
-        }
-        else{
-            return null;
         }
     }
 
