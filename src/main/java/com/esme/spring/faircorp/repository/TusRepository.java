@@ -11,4 +11,7 @@ public interface TusRepository extends JpaRepository<Tus, Integer> {
 
     @Query("select t.id as id, t.room.users.info.name as name, t.room.numberOfTenants as num, t.room.price as price, t.room.users.info.address as address, t.room.image as image from Tus t ")
     List<TusDTO> getAllTus();
+
+    @Query("select t.id as id, t.room.users.info.name as name, t.room.numberOfTenants as num, t.room.price as price, t.room.users.info.address as address, t.room.image as image from Tus t where t.id in :ils")
+    List<TusDTO> getTusSave( List<Integer> ils);
 }

@@ -368,4 +368,31 @@ public class ManageService {
         return tusRepository.getAllTus();
     }
 
+    public boolean saveTus(int id, int tusId){
+        Optional<Users> uO = userRepository.findById(id);
+        Optional<Tus> tusO = tusRepository.findById(tusId);
+        if(uO.isPresent() && tusO.isPresent()){
+            Tus t=tusO.get();
+            List<Users> ls =t.getUsersSave();
+            ls.add(uO.get());
+            t.setUsersSave(ls);
+            tusRepository.save(t);
+            return true;
+        }
+        return false;
+    }
+
+    public List<TusDTO> getTusSave(int id){
+        Optional<Users> uO = userRepository.findById(id);
+        if(uO.isPresent()){
+            Users u = uO.get();
+            List<Tus> tusList = u.getTusSaveList();
+            List<Integer> ls = new ArrayList<>();
+            for(Tus item: tusList){
+                ls.add(item.getId());
+            }
+            return tusRepository.getTusSave(ls);
+        }
+        return null;
+    }
 }

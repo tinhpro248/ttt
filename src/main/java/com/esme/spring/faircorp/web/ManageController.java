@@ -201,4 +201,14 @@ public class ManageController {
     public List<TusDTO> roomTusReponses(){
         return manageService.tus();
     }
+
+    @PostMapping("tus/save")
+    public boolean saveTus(@Param("id") int id, @Param("tusId") int tusId){
+        return manageService.saveTus(id, tusId);
+    }
+
+    @GetMapping("tus/save")
+    public List<TusDTO> getSaveTus(@Param("id") int id){
+        return manageService.getTusSave(id);
+    }
 }
