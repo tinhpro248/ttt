@@ -43,7 +43,7 @@ public class ManageService {
             for(com.esme.spring.faircorp.model.Service item : rO.get().getServiceList()){
                 serviceIList.add(new ServiceI(item.getName(), item.getPrice()));
             }
-            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), new String(rO.get().getImage()), rO.get().getSex(), serviceIList);
+            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), rO.get().getImage(), rO.get().getSex(), serviceIList);
         }
         return null;
     }
