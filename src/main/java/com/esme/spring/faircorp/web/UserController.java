@@ -44,7 +44,7 @@ public class UserController {
 
     @PostMapping("user/edit")
     public ProfileDTO editProfile(@RequestBody ProfileDTO user){
-        return user;
+        return userService.userEdit(user);
     }
 
     @PostMapping("user/edit-password")

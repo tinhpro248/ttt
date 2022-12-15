@@ -10,6 +10,6 @@ public interface TenantDTO {
     String getCCCD();
     Date getBirthday();
     String getRoom();
-    String getImage();
+    Byte[] getImage();
     Date getTime();
 }

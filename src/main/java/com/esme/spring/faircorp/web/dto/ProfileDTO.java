@@ -17,9 +17,7 @@ public class ProfileDTO {
 
     private String CCCD;
 
-    private String room;
-
-    private String image;
+    private Byte[] image;
 
     public int getId() {
         return id;
@@ -77,26 +75,18 @@ public class ProfileDTO {
         this.CCCD = CCCD;
     }
 
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-
-    public String getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
     public ProfileDTO() {
     }
 
-    public ProfileDTO(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, String room, String image) {
+    public ProfileDTO(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, Byte[] image) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -104,7 +94,6 @@ public class ProfileDTO {
         this.phone = phone;
         this.birthday = birthday;
         this.CCCD = CCCD;
-        this.room = room;
         this.image = image;
     }
 }

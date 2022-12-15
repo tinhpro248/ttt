@@ -19,7 +19,7 @@ public class ProfileReponse {
 
     private String room;
 
-    private String image;
+    private Byte[] image;
 
     public int getId() {
         return id;
@@ -85,18 +85,18 @@ public class ProfileReponse {
         this.room = room;
     }
 
-    public String getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
     public ProfileReponse() {
     }
 
-    public ProfileReponse(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, String room, String image) {
+    public ProfileReponse(int id, String name, boolean type, String email, String phone, Date birthday, String CCCD, String room, Byte[] image) {
         this.id = id;
         this.name = name;
         this.type = type;

@@ -36,7 +36,7 @@ public class Users {
     private boolean type;
 
     @Column(name = "image")
-    private String image;
+    private Byte[] image;
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<Notification> notifyList;
@@ -138,11 +138,11 @@ public class Users {
         this.type = type;
     }
 
-    public String getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
@@ -230,7 +230,7 @@ public class Users {
         this.type = type;
     }
 
-    public Users(String userName, String password, String name, String email, String phoneNum, Date birthday, String CCCD, boolean type, String image, List<Notification> notifyList, List<Notification> notifications, List<Room> roomList, List<Revenue> revenueList, List<Revenue> revenues, List<Tenants> tenantsList, List<Tus> tusSaveList, Tenants tenants, Info info, List<Service> serviceList) {
+    public Users(String userName, String password, String name, String email, String phoneNum, Date birthday, String CCCD, boolean type, Byte[] image, List<Notification> notifyList, List<Notification> notifications, List<Room> roomList, List<Revenue> revenueList, List<Revenue> revenues, List<Tenants> tenantsList, List<Tus> tusSaveList, Tenants tenants, Info info, List<Service> serviceList) {
         this.userName = userName;
         this.password = password;
         this.name = name;

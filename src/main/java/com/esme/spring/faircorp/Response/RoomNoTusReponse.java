@@ -5,7 +5,7 @@ public class RoomNoTusReponse {
     String name;
     int price;
     int num;
-    String image;
+    Byte[] image;
 
     public int getId() {
         return id;
@@ -39,18 +39,18 @@ public class RoomNoTusReponse {
         this.num = num;
     }
 
-    public String getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
     public RoomNoTusReponse() {
     }
 
-    public RoomNoTusReponse(int id, String name, int price, int num, String image) {
+    public RoomNoTusReponse(int id, String name, int price, int num, Byte[] image) {
         this.id = id;
         this.name = name;
         this.price = price;

@@ -7,7 +7,7 @@ public interface TenantListDTO {
     String getName();
     String getPhone();
     Date getTime();
-    String getImage();
+    Byte[] getImage();
 
     String getRoom();
 }

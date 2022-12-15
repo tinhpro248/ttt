@@ -11,5 +11,5 @@ public interface TusDTO {
 
     public String getAddress();
 
-    public String getImage();
+    public Byte[] getImage();
 }

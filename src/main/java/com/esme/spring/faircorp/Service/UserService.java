@@ -5,6 +5,7 @@ import com.esme.spring.faircorp.Response.ProfileReponse;
 import com.esme.spring.faircorp.model.Users;
 import com.esme.spring.faircorp.repository.UserRepository;
 import com.esme.spring.faircorp.web.Request.UserRequest;
+import com.esme.spring.faircorp.web.dto.ProfileDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,7 @@ public class UserService {
         }
     }
 
-    public ProfileReponse userEdit(ProfileReponse user){
+    public ProfileDTO userEdit(ProfileDTO user){
         Optional<Users> u = userRepository.profile(user.getId());
         if(u.isPresent()){
             Users newUser = u.get();
