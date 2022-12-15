@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TenantsRepository extends JpaRepository<Tenants, Integer> {
-    @Query("select t.id as id, t.time as time, t.usersParent.name as name, t.usersParent.phoneNum as phone, t.users.image as image from " +
-            "Tenants t where t.users.id = :userId")
+    @Query("select t.id as id, t.time as time, t.usersParent.name as name, t.usersParent.phoneNum as phone, t.users.image as image," +
+            "t.room.name as room from Tenants t where t.users.id = :userId")
     List<TenantListDTO> getAllTenantByUserId(int userId);
 
     @Query("select t.id as id, t.time as time, t.usersParent.name as name, t.usersParent.phoneNum as phone, t.users.image as image from " +
