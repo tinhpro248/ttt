@@ -5,8 +5,8 @@ public interface RevenueDTO {
     String getCode();
     String getRoom();
     String getUser();
-    int getType();
-    boolean getGroup();
+    String getType();
+    String getGroup();
     int getPrice();
     String getNote();
 }

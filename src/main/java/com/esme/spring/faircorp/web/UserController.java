@@ -59,7 +59,7 @@ public class UserController {
         Random rand = new Random();
 
         int randomNum = rand.nextInt((999999 - 100000) + 1) + 1000000;
-        Message.creator(new PhoneNumber(String.valueOf(phone)),
+        Message.creator(new PhoneNumber(phone),
                 new PhoneNumber("+15627847500"), "Verify code:" + String.valueOf(randomNum)).create();
 
         return String.valueOf(randomNum);

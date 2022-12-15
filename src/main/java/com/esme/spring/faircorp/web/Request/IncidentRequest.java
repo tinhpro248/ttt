@@ -1,13 +1,13 @@
-package com.esme.spring.faircorp.web.dto;
+package com.esme.spring.faircorp.web.Request;
 
 import java.util.Date;
 
-public interface IncidentListDTO {
+public interface IncidentRequest {
     int getId();
-    String getRoom();
+    int getRoom();
     String getType();
     Date getTime();
+    String getNote();
     Byte[] getImage();
-
     String getStatus();
 }

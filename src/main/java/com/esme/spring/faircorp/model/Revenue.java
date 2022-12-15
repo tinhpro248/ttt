@@ -14,10 +14,10 @@ public class Revenue {
     private String code;
 
     @Column(name = "type")
-    private int type;
+    private String type;
 
     @Column(name = "groups")
-    private boolean groups;
+    private String groups;
 
     @Column(name = "price")
     private int price;
@@ -56,19 +56,19 @@ public class Revenue {
         this.code = code;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public boolean isGroups() {
+    public String getGroups() {
         return groups;
     }
 
-    public void setGroups(boolean groups) {
+    public void setGroups(String groups) {
         this.groups = groups;
     }
 
@@ -123,7 +123,7 @@ public class Revenue {
     public Revenue() {
     }
 
-    public Revenue(String code, int type, boolean groups, int price, String note, Date time, Users users, Room room, Users tenant) {
+    public Revenue(String code, String type, String groups, int price, String note, Date time, Users users, Room room, Users tenant) {
         this.code = code;
         this.type = type;
         this.groups = groups;

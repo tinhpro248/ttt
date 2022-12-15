@@ -3,11 +3,14 @@ package com.esme.spring.faircorp.Service;
 import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.model.*;
 import com.esme.spring.faircorp.repository.*;
+import com.esme.spring.faircorp.web.Request.IncidentRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+
+import static io.jsonwebtoken.lang.Collections.size;
 
 @Service
 public class ManageService {
@@ -31,12 +34,26 @@ public class ManageService {
     @Autowired
     UserRepository userRepository;
 
-    public RoomInfoDTO roomInfo(int id){
-        return roomRepository.getRoomById(id);
+    public RoomInfoDetailDTO roomInfo(int id){
+        Optional<Room> rO = roomRepository.findById(id);
+        if(rO.isPresent()){
+            List<ServiceI> serviceIList = new ArrayList<>(Collections.emptyList());
+            for(com.esme.spring.faircorp.model.Service item : rO.get().getServiceList()){
+                serviceIList.add(new ServiceI(item.getName(), item.getPrice()));
+            }
+            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(),serviceIList);
+        }
+        return null;
     }
 
     public List<RoomInfoDTO> roomList(int id){
-        return roomRepository.getRoomByUserId(id);
+
+        List<Room> roomList = roomRepository.getRoomByUserId(id);
+        List<RoomInfoDTO> roomInfoDTOList = new ArrayList<>(Collections.emptyList());
+        for(Room item :roomList){
+            roomInfoDTOList.add(new RoomInfoDTO(item.getId(), item.getName(), item.getArea(), item.getPrice(), item.getNumberOfTenants(), item.getRentFrom(), item.getSex(), size(item.getTenants())));
+        }
+        return roomInfoDTOList;
     }
 
     public List<TenantListDTO> getTenantList(int id){
@@ -89,8 +106,13 @@ public class ManageService {
         return billRepository.getList2Bill(id);
     }
 
-    public List<BillListDTO> getListAllBill(int id){
-        return billRepository.getListBill(id);
+    public List<BillListDTO> getListAllBill(int id, int status){
+        if(status == 0)
+            return billRepository.getListBill(id, "Chưa thanh toán");
+        else if(status == 1)
+            return billRepository.getListBill(id, "Đã thanh toán");
+        else
+            return billRepository.getListBill(id, "Thanh toán trễ");
     }
 
     public BillDTO getBill(int id){
@@ -109,17 +131,27 @@ public class ManageService {
         }
     }
 
-    public List<IncidentListDTO> getListIncident(int id){
+    public List<IncidentListDTO> getListIncident(int id, int status){
+        String s;
+        if(status == 0){
+            s = "Chờ xử lý";
+        }
+        else if(status == 1){
+            s = "Đang xử lý";
+        }
+        else{
+            s = "Đã xử lý";
+        }
         Optional<Users> uO = userRepository.findById(id);
         if(uO.isPresent()){
             Users u = uO.get();
             if(u.isType()){
-                return incidentRepository.getListIncident(id);
+                return incidentRepository.getListIncident(id, s);
             }
             else {
                 if(u.getTenants() != null){
                     if(u.getTenants().getRoom() != null){
-                        return incidentRepository.getListIncidentTenant(u.getTenants().getRoom().getId());
+                        return incidentRepository.getListIncidentTenant(u.getTenants().getRoom().getId(), s);
                     }
                 }
                 return Collections.emptyList();
@@ -226,7 +258,7 @@ public class ManageService {
             return null;
         }
         else{
-            Bill newB = new Bill(bill.getCode(), bill.getType(), bill.getPrice(), bill.getNote(), bill.getStartTime(), bill.getEndTime(), 0,rO.orElse(null));
+            Bill newB = new Bill(bill.getCode(), bill.getType(), bill.getPrice(), bill.getNote(), bill.getStartTime(), bill.getEndTime(), "Chưa thanh toán",rO.orElse(null));
             billRepository.save(newB);
             return bill;
         }
@@ -236,8 +268,8 @@ public class ManageService {
         Optional<Bill> bO = billRepository.findById(id);
         if(bO.isPresent()){
             Bill b = bO.get();
-            b.setStatus(1);
-            Revenue newR = new Revenue(b.getCode(), b.getType(), true, b.getPrice(), b.getNote(), new Date(), b.getRoom().getUsers(), b.getRoom(), null);
+            b.setStatus("Đã thanh toán");
+            Revenue newR = new Revenue(b.getCode(), b.getType(), "Thu", b.getPrice(), b.getNote(), new Date(), b.getRoom().getUsers(), b.getRoom(), null);
             revenueRepository.save(newR);
             return true;
         }
@@ -271,6 +303,13 @@ public class ManageService {
         else{
             return null;
         }
+    }
+
+    public IncidentRequest addIncident(IncidentRequest incidentDTO){
+        Optional<Room> rO = roomRepository.findById(incidentDTO.getRoom());
+        Incident i = new Incident(incidentDTO.getTime(), incidentDTO.getNote(), incidentDTO.getType(), incidentDTO.getImage(), incidentDTO.getStatus(), rO.orElse(null));
+        incidentRepository.save(i);
+        return incidentDTO;
     }
 
 }

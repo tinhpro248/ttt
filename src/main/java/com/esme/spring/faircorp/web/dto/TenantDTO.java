@@ -11,4 +11,6 @@ public interface TenantDTO {
     Date getBirthday();
     String getRoom();
     Byte[] getImage();
+
+    Date getTime();
 }

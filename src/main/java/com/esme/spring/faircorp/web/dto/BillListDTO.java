@@ -5,10 +5,12 @@ import java.util.Date;
 public interface BillListDTO {
     int getId();
     String getCode();
-    int getType();
+    String getType();
     int getPrice();
     String getRoom();
     Date getStartTime();
     Date getEndTime();
+
+    String getStatus();
 
 }

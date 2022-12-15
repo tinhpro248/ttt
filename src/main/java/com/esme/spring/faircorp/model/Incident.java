@@ -23,7 +23,7 @@ public class Incident {
     private Byte[] image;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
@@ -69,11 +69,11 @@ public class Incident {
         this.image = image;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -88,7 +88,7 @@ public class Incident {
     public Incident() {
     }
 
-    public Incident(Date time, String note, String type, Byte[] image, int status, Room room) {
+    public Incident(Date time, String note, String type, Byte[] image, String status, Room room) {
         this.time = time;
         this.note = note;
         this.type = type;

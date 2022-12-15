@@ -43,16 +43,16 @@ INSERT INTO tus(
 --Revenue
 INSERT INTO revenue(
 	id, code, groups, note, price, time, type, room_id, tenant_id, users_id)
-	VALUES (1, '#121', true, 'Thanh toán tiền phòng', 1000000, '2022-10-18 16:50:00', 0, 2, 3, 1);
+	VALUES (1, '#121', 'Thu', 'Thanh toán tiền phòng', 1000000, '2022-10-18 16:50:00', 'Tiền phòng', 2, 3, 1);
 INSERT INTO revenue(
 	id, code, groups, note, price, time, type, room_id, tenant_id, users_id)
-	VALUES (2, '#122', true, 'Thanh toán tiền phòng', 1000000, '2022-10-19 10:34:00', 0, 1, 2, 1);
+	VALUES (2, '#122', 'Thu', 'Thanh toán tiền phòng', 1000000, '2022-10-19 10:34:00', 'Tiền phòng', 1, 2, 1);
 INSERT INTO revenue(
 	id, code, groups, note, price, time, type, room_id, tenant_id, users_id)
-	VALUES (3, '#123', true, 'Thanh toán tiền phòng', 1000000, '2022-11-20 15:26:00', 0, 1, 2, 1);
+	VALUES (3, '#123', 'Thu', 'Thanh toán tiền phòng', 1000000, '2022-11-20 15:26:00', 'Tiền phòng', 1, 2, 1);
 INSERT INTO revenue(
 	id, code, groups, note, price, time, type, room_id, tenant_id, users_id)
-	VALUES (4, '#124', true, 'Thanh toán điện nước', 100000, '2022-11-20 15:30:00', 1, 1, 2, 1);
+	VALUES (4, '#124', 'Thu', 'Thanh toán điện nước', 100000, '2022-11-20 15:30:00', 'Tiền điện nước', 1, 2, 1);
 
 --Notification
 INSERT INTO notification(
@@ -68,40 +68,40 @@ INSERT INTO notification(
 --Info
 INSERT INTO info(
 	id, address, name, price, sum, vote, user_id)
-	VALUES (1, '162 Lê Quý Đôn, Tân Lập, Đông Hòa, Dĩ An,Bình Dương', 'Nhà trọ cho SV', '1000000', '20', '3.5', 1);
+	VALUES (1, '162 Lê Quý Đôn, Tân Lập, Đông Hòa, Dĩ An,Bình Dương', 'Nhà trọ cho SV', 1000000, 20, 3.5, 1);
 
 --Incident
 INSERT INTO incident(
 	id, image, note, status, time, type, room_id)
-	VALUES (1, null, 'Hỏng bóng đèn', 2, '2022-10-10 10:54:00', 'Hỏng bóng đèn', 1);
+	VALUES (1, null, 'Hỏng bóng đèn', 'Đã xử lý', '2022-10-10 10:54:00', 'Hỏng bóng đèn', 1);
 INSERT INTO incident(
 	id, image, note, status, time, type, room_id)
-	VALUES (2, null, 'Hỏng vòi nước', 1, '2022-11-10 10:34:00', 'Hỏng vòi nước', 1);
+	VALUES (2, null, 'Hỏng vòi nước', 'Đang xử lý', '2022-11-10 10:34:00', 'Hỏng vòi nước', 1);
 INSERT INTO incident(
 	id, image, note, status, time, type, room_id)
-	VALUES (3, null, 'Hỏng ổ cắm điện', 0, '2022-12-10 10:10:00', 'Hỏng ổ cắm điện', 1);
+	VALUES (3, null, 'Hỏng ổ cắm điện', 'Chờ xử lý', '2022-12-10 10:10:00', 'Hỏng ổ cắm điện', 1);
 
 --Bill
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (1, '#121', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 1, 0, 2);
+	VALUES (1, '#121', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 'Đã thanh toán', 'Tiền phòng', 2);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (2, '#122', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 1, 0, 1);
+	VALUES (2, '#122', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 'Đã thanh toán', 'Tiền phòng', 1);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (3, '#123', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 1, 0, 1);
+	VALUES (3, '#123', '2022-11-30 00:00:00', '?', 1000000, '2022-10-10 00:00:00', 'Đã thanh toán', 'Tiền phòng', 1);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (4, '#124', '2022-11-30 00:00:00', '?', 100000, '2022-10-10 00:00:00', 1, 1, 1);
+	VALUES (4, '#124', '2022-11-30 00:00:00', '?', 100000, '2022-10-10 00:00:00', 'Đã thanh toán', 'Tiền điện nước', 1);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (5, '#125', '2022-11-30 00:00:00', '?', 1000000, '2022-11-10 00:00:00', 2, 0, 2);
+	VALUES (5, '#125', '2022-11-30 00:00:00', '?', 1000000, '2022-11-10 00:00:00', 'Thanh toán trễ', 'Tiền phòng', 2);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (6, '#126', '2022-12-30 00:00:00', '?', 100000, '2022-12-10 00:00:00', 0, 1, 1);
+	VALUES (6, '#126', '2022-12-30 00:00:00', '?', 100000, '2022-12-10 00:00:00', 'Chưa thanh toán', 'Tiền điện nước', 1);
 INSERT INTO bill(
 	id, code, end_time, note, price, start_time, status, type, room_id)
-	VALUES (7, '#127', '2022-12-30 00:00:00', '?', 1000000, '2022-12-10 00:00:00', 0, 0, 1);
+	VALUES (7, '#127', '2022-12-30 00:00:00', '?', 1000000, '2022-12-10 00:00:00', 'Chưa thanh toán', 'Tiền phòng', 1);
 
 

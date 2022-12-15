@@ -14,7 +14,7 @@ public class Bill {
     private String code;
 
     @Column(name = "type")
-    private int type;
+    private String type;
 
     @Column(name = "price")
     private int price;
@@ -29,7 +29,7 @@ public class Bill {
     private Date endTime;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
@@ -51,11 +51,11 @@ public class Bill {
         this.code = code;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -91,11 +91,11 @@ public class Bill {
         this.endTime = endTime;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -110,7 +110,7 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(String code, int type, int price, String note, Date startTime, Date endTime, int status, Room room) {
+    public Bill(String code, String type, int price, String note, Date startTime, Date endTime, String status, Room room) {
         this.code = code;
         this.type = type;
         this.price = price;

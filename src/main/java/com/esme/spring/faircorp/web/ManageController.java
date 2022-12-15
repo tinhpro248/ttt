@@ -2,6 +2,7 @@ package com.esme.spring.faircorp.web;
 
 import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.Service.ManageService;
+import com.esme.spring.faircorp.web.Request.IncidentRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -23,7 +24,7 @@ public class ManageController {
     ManageService manageService;
 
     @GetMapping("room/{id}")
-    public RoomInfoDTO roomInfo(@PathVariable int id, @Param("s") boolean s){
+    public RoomInfoDetailDTO roomInfo(@PathVariable int id){
         return manageService.roomInfo(id);
     }
 
@@ -63,8 +64,8 @@ public class ManageController {
     }
 
     @GetMapping("bill/all")
-    public List<BillListDTO> billAll(@Param("userId") int id){
-        return manageService.getListAllBill(id);
+    public List<BillListDTO> billAll(@Param("userId") int id, @Param("status") int status){
+        return manageService.getListAllBill(id, status);
     }
 
     @GetMapping("bill/all/{id}")
@@ -103,13 +104,18 @@ public class ManageController {
     }
 
     @GetMapping("incident")
-    public List<IncidentListDTO> incidents(@Param("id") int id, @Param("type") int type){
-        return manageService.getListIncident(id);
+    public List<IncidentListDTO> incidents(@Param("id") int id, @Param("status") int status){
+        return manageService.getListIncident(id, status);
     }
 
     @GetMapping("incident/{id}")
     public IncidentDTO incidentDetail(@PathVariable int id){
         return manageService.getIncident(id);
+    }
+
+    @PutMapping("incident")
+    public IncidentRequest addIncident(@RequestBody IncidentRequest incidentDTO){
+        return manageService.addIncident(incidentDTO);
     }
 
     @PostMapping("incident/{id}")

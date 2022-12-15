@@ -5,12 +5,14 @@ import java.util.Date;
 public class BillDetailReponse {
     int id;
     String code;
-    int type;
+    String type;
     int price;
     String note;
     int idRoom;
     Date startTime;
     Date endTime;
+
+    String status;
 
     public int getId() {
         return id;
@@ -28,11 +30,11 @@ public class BillDetailReponse {
         this.code = code;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -76,10 +78,18 @@ public class BillDetailReponse {
         this.endTime = endTime;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public BillDetailReponse() {
     }
 
-    public BillDetailReponse(int id, String code, int type, int price, String note, int idRoom, Date startTime, Date endTime) {
+    public BillDetailReponse(int id, String code, String type, int price, String note, int idRoom, Date startTime, Date endTime, String status) {
         this.id = id;
         this.code = code;
         this.type = type;
@@ -88,5 +98,6 @@ public class BillDetailReponse {
         this.idRoom = idRoom;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.status = status;
     }
 }

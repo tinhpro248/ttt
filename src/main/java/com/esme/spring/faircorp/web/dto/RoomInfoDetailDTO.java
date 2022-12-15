@@ -1,19 +1,17 @@
 package com.esme.spring.faircorp.web.dto;
 
 import java.util.Date;
+import java.util.List;
 
-public class RoomInfoDTO {
+public class RoomInfoDetailDTO {
     int id;
     String name;
     String area;
     int price;
     int numberOfTenants;
     Date rentFrom;
-    String sex;
     int numRents;
-
-    public RoomInfoDTO() {
-    }
+    List<ServiceI> serviceIList;
 
     public int getId() {
         return id;
@@ -63,14 +61,6 @@ public class RoomInfoDTO {
         this.rentFrom = rentFrom;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
     public int getNumRents() {
         return numRents;
     }
@@ -79,14 +69,25 @@ public class RoomInfoDTO {
         this.numRents = numRents;
     }
 
-    public RoomInfoDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, int numRents) {
+    public List<ServiceI> getServiceIList() {
+        return serviceIList;
+    }
+
+    public void setServiceIList(List<ServiceI> serviceIList) {
+        this.serviceIList = serviceIList;
+    }
+
+    public RoomInfoDetailDTO() {
+    }
+
+    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, List<ServiceI> serviceIList) {
         this.id = id;
         this.name = name;
         this.area = area;
         this.price = price;
         this.numberOfTenants = numberOfTenants;
         this.rentFrom = rentFrom;
-        this.sex = sex;
         this.numRents = numRents;
+        this.serviceIList = serviceIList;
     }
 }

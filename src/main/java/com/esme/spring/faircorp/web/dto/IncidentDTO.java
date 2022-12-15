@@ -9,5 +9,5 @@ public interface IncidentDTO {
     Date getTime();
     String getNote();
     Byte[] getImage();
-    int getStatus();
+    String getStatus();
 }
