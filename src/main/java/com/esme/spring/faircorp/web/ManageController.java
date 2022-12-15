@@ -110,8 +110,8 @@ public class ManageController {
     }
 
     @GetMapping("incident")
-    public List<IncidentListDTO> incidents(@Param("id") int id, @Param("status") int status){
-        return manageService.getListIncident(id, status);
+    public List<IncidentListDTO> incidents(@Param("id") int id){
+        return manageService.getListIncident(id);
     }
 
     @GetMapping("incident/{id}")

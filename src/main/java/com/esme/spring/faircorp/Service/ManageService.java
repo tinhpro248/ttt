@@ -132,27 +132,17 @@ public class ManageService {
         }
     }
 
-    public List<IncidentListDTO> getListIncident(int id, int status){
-        String s;
-        if(status == 0){
-            s = "Chờ xử lý";
-        }
-        else if(status == 1){
-            s = "Đang xử lý";
-        }
-        else{
-            s = "Đã xử lý";
-        }
+    public List<IncidentListDTO> getListIncident(int id){
         Optional<Users> uO = userRepository.findById(id);
         if(uO.isPresent()){
             Users u = uO.get();
             if(u.isType()){
-                return incidentRepository.getListIncident(id, s);
+                return incidentRepository.getListIncident(id);
             }
             else {
                 if(u.getTenants() != null){
                     if(u.getTenants().getRoom() != null){
-                        return incidentRepository.getListIncidentTenant(u.getTenants().getRoom().getId(), s);
+                        return incidentRepository.getListIncidentTenant(u.getTenants().getRoom().getId());
                     }
                 }
                 return Collections.emptyList();

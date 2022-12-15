@@ -11,5 +11,5 @@ public interface RevenueListDTO {
     String getUser();
     Date getTime();
 
-    String getGroups();
+    String getGroup();
 }

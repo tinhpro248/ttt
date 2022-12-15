@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface BillRepository extends JpaRepository<Bill, Integer> {
     @Query("select r.type as type , r.endTime as endTime, r.id as id, r.code as code, r.price as price, r.room.name as room, r.startTime as startTime" +
-            ", r.status as status from Bill r where r.id = :id order by startTime desc")
+            ", r.status as status from Bill r where r.room.users.id = :id order by startTime desc")
     List<BillListDTO> getList2Bill(int id);
 
     @Query("select r.id as id, r.code as code, r.price as price, r.startTime as startTime, r.room.name as room, r.type as type, r.endTime as endTime" +
