@@ -170,4 +170,9 @@ public class ManageController {
     public RoomTusDetailReponse roomTusAdd(@PathVariable int id, @RequestBody String note){
         return manageService.addTus(id, note);
     }
+
+    @GetMapping("room/tus/{id}/vote")
+    public boolean voteInfo(@Param("vote") int vote, @PathVariable int id){
+        return manageService.vote(id, vote);
+    }
 }

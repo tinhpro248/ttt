@@ -1,5 +1,7 @@
 package com.esme.spring.faircorp.web.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class RoomInfoDTO {

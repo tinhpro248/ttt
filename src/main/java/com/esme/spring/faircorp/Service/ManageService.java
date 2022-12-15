@@ -323,4 +323,20 @@ public class ManageService {
         else return false;
     }
 
+    public boolean vote(int id, int vote){
+        Optional<Tus> tusO = tusRepository.findById(id);
+        if(tusO.isPresent()){
+            Tus tus = tusO.get();
+            if(tus.getRoom() != null){
+                Info info = tus.getRoom().getUsers().getInfo();
+                float votes = (info.getVote()*info.getSum() + vote)/(info.getSum()+1);
+                info.setVote(votes);
+                info.setSum(info.getSum() +1);
+                infoRepository.save(info);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
