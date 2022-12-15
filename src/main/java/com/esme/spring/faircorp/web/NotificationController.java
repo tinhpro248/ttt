@@ -1,7 +1,9 @@
 package com.esme.spring.faircorp.web;
 
 //import com.esme.spring.faircorp.repository.RoomDao;
-import com.esme.spring.faircorp.web.dto.NotificationDTO;
+import com.esme.spring.faircorp.Service.NoService;
+import com.esme.spring.faircorp.repository.NotificationDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,18 +19,16 @@ import java.util.*;
 @Transactional
 public class NotificationController {
 
-//    @Autowired
-//    NoService noService;
+    @Autowired
+    NoService noService;
     @GetMapping("notification")
     public NotificationDTO notification(@Param("id") int id){
-        return new NotificationDTO(1, "Phòng P001 đã thanh toán tiền phòng tháng 8", new Date(), 0);
+        return noService.getNotification(id);
     }
 
     @GetMapping("notification/list")
-    public ArrayList<NotificationDTO> notificationList(@Param("id") int id){
-        ArrayList<NotificationDTO> arrayList = new ArrayList<NotificationDTO>();
-        arrayList.add(new NotificationDTO(1, "Phòng P001 đã thanh toán tiền phòng tháng 8", new Date(), 0));
-        return arrayList;
+    public List<com.esme.spring.faircorp.repository.NotificationDTO> notificationList(@Param("id") int id){
+        return noService.getAllNotify(id);
     }
 
 }

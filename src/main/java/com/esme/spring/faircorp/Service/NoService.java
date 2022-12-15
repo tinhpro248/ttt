@@ -20,6 +20,4 @@ public class NoService {
     public List<NotificationDTO> getAllNotify(int id){
         return notificationRepository.getAll(id);
     }
-
-
 }
