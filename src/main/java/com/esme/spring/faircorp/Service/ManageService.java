@@ -87,6 +87,17 @@ public class ManageService {
         return revenueRepository.getListRevenue(id);
     }
 
+    public List<RevenueListDTO> getRevenuesAllRoom(int id){
+        Optional<Users> u = userRepository.findById(id);
+        if(u.isPresent()){
+            if(u.get().getTenants() != null) {
+                int rId = u.get().getTenants().getRoom().getId();
+                return revenueRepository.getListRevenueRoom(rId);
+            }
+        }
+        return null;
+    }
+
     public RevenueDTO getRevenue(int id){
         Optional<RevenueDTO> r =revenueRepository.getRevenue(id);
         return r.orElse(null);
@@ -113,7 +124,7 @@ public class ManageService {
         if(u.isPresent()){
             if(u.get().getTenants() != null) {
                 int rId = u.get().getTenants().getRoom().getId();
-                return billRepository.getList2BillRoom(id);
+                return billRepository.getList2BillRoom(rId);
             }
         }
         return null;
