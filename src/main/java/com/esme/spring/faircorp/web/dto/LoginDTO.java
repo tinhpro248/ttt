@@ -4,7 +4,7 @@ public class LoginDTO {
     private int id;
     private String name;
     private boolean type;
-    private Byte[] image;
+    private String image;
 
     public LoginDTO() {
     }
@@ -33,15 +33,15 @@ public class LoginDTO {
         this.type = type;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public LoginDTO(int id, String name, boolean type, Byte[] image) {
+    public LoginDTO(int id, String name, boolean type, String image) {
         this.id = id;
         this.name = name;
         this.type = type;

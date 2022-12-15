@@ -33,7 +33,7 @@ public class Room {
     private String sex;
 
     @Column(name = "image")
-    private Byte[] image;
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "users_id")
@@ -113,11 +113,11 @@ public class Room {
         this.sex = sex;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -177,7 +177,7 @@ public class Room {
         this.incidentList = incidentList;
     }
 
-    public Room(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, Byte[] image, Users users, List<Tenants> tenants, Tus tus, List<Service> serviceList, List<Revenue> revenueList, List<Bill> billList, List<Incident> incidentList) {
+    public Room(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, String image, Users users, List<Tenants> tenants, Tus tus, List<Service> serviceList, List<Revenue> revenueList, List<Bill> billList, List<Incident> incidentList) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -214,7 +214,7 @@ public class Room {
         this.incidentList = incidentList;
     }
 
-    public Room(String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, Byte[] image, Users users) {
+    public Room(String name, String area, int price, int numberOfTenants, Date rentFrom, String sex, String image, Users users) {
         this.name = name;
         this.area = area;
         this.price = price;

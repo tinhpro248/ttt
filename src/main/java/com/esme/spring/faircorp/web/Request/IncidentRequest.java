@@ -7,7 +7,7 @@ public class IncidentRequest {
     int room;
     String type;
     String note;
-    Byte[] image;
+    String image;
 
     public int getId() {
         return id;
@@ -41,18 +41,18 @@ public class IncidentRequest {
         this.note = note;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
     public IncidentRequest() {
     }
 
-    public IncidentRequest(int id, int room, String type, String note, Byte[] image) {
+    public IncidentRequest(int id, int room, String type, String note, String image) {
         this.id = id;
         this.room = room;
         this.type = type;

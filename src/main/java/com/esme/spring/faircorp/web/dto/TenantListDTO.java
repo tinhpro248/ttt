@@ -8,5 +8,5 @@ public interface TenantListDTO {
     String getPhone();
     Date getTime();
 
-    Byte[] getImage();
+    String getImage();
 }

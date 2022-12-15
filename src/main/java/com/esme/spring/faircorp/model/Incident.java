@@ -20,7 +20,7 @@ public class Incident {
     private String type;
 
     @Column(name = "image")
-    private Byte[] image;
+    private String image;
 
     @Column(name = "status")
     private String status;
@@ -61,11 +61,11 @@ public class Incident {
         this.type = type;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -88,7 +88,7 @@ public class Incident {
     public Incident() {
     }
 
-    public Incident(Date time, String note, String type, Byte[] image, String status, Room room) {
+    public Incident(Date time, String note, String type, String image, String status, Room room) {
         this.time = time;
         this.note = note;
         this.type = type;
