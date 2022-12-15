@@ -52,6 +52,11 @@ public class UserController {
         return userService.editPassword(id, password, newPassword);
     }
 
+    @PostMapping("user/password")
+    public String password(@Param("username") String username) {
+        return userService.password(username);
+    }
+
     @GetMapping(value = "/sendSMS")
     public String sendSMS(@Param("phone") String phone) {
 

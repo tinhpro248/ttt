@@ -16,4 +16,7 @@ public interface UserRepository extends JpaRepository<Users,Integer> {
 
     @Query(value = "SELECT * FROM users u WHERE u.id = ?1", nativeQuery = true)
     Optional<Users> profile(int id);
+
+    @Query("select u.password from Users u where u.userName = :username")
+    Optional<String> getPassword(String username);
 }

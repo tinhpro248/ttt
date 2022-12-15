@@ -76,4 +76,9 @@ public class UserService {
         }
         else{return false;}
     }
+
+    public String password(String username){
+        Optional<String> uO = userRepository.getPassword(username);
+        return uO.orElse(null);
+    }
 }
