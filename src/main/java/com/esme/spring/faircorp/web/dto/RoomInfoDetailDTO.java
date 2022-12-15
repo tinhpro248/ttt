@@ -12,16 +12,16 @@ public class RoomInfoDetailDTO {
     Date rentFrom;
     int numRents;
 
-    byte[] image;
+    String image;
 
     String sex;
     List<ServiceI> serviceIList;
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -100,7 +100,7 @@ public class RoomInfoDetailDTO {
     public RoomInfoDetailDTO() {
     }
 
-    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, byte[] image, String sex, List<ServiceI> serviceIList) {
+    public RoomInfoDetailDTO(int id, String name, String area, int price, int numberOfTenants, Date rentFrom, int numRents, String image, String sex, List<ServiceI> serviceIList) {
         this.id = id;
         this.name = name;
         this.area = area;

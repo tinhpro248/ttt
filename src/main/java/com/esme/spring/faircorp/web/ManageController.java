@@ -216,4 +216,9 @@ public class ManageController {
     public boolean incidentEditStatus(@Param("status") String status, @Param("id") int id){
         return manageService.updateStatusIncident(status, id);
     }
+
+    @GetMapping("aa")
+    public boolean aaa(@Param("id") int id, @Param("ss") String ss){
+        return manageService.s(ss, id);
+    }
 }

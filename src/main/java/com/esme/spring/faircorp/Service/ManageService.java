@@ -43,7 +43,7 @@ public class ManageService {
             for(com.esme.spring.faircorp.model.Service item : rO.get().getServiceList()){
                 serviceIList.add(new ServiceI(item.getName(), item.getPrice()));
             }
-            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), rO.get().getImage(), rO.get().getSex(), serviceIList);
+            return new RoomInfoDetailDTO(rO.get().getId(), rO.get().getName(), rO.get().getArea(), rO.get().getPrice(), rO.get().getNumberOfTenants(), rO.get().getRentFrom(), rO.get().getTenants().size(), new String(rO.get().getImage()), rO.get().getSex(), serviceIList);
         }
         return null;
     }
@@ -407,5 +407,15 @@ public class ManageService {
         return false;
     }
 
-
+    public boolean s(String sss, int  id){
+        Optional<Room> use = roomRepository.findById(id);
+        if(use.isPresent()){
+            Room a = use.get();
+            byte[] im = sss.getBytes();
+            a.setImage(im);
+            roomRepository.save(a);
+            return true;
+        }
+        return false;
+    }
 }

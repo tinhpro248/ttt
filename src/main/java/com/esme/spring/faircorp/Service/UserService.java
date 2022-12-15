@@ -83,15 +83,4 @@ public class UserService {
         return uO.orElse(null);
     }
 
-    public boolean s(String sss, int  id){
-        Optional<Users> use = userRepository.findById(id);
-        if(use.isPresent()){
-            Users a = use.get();
-            byte[] im = sss.getBytes();
-            a.setImage(im);
-            userRepository.save(a);
-            return true;
-        }
-        return false;
-    }
 }
