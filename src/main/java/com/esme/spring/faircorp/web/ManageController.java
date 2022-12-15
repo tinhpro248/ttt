@@ -3,6 +3,7 @@ package com.esme.spring.faircorp.web;
 import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.Service.ManageService;
 import com.esme.spring.faircorp.web.Request.IncidentRequest;
+import com.esme.spring.faircorp.web.Request.ServiceRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -135,15 +136,20 @@ public class ManageController {
 
 
 
-//    @GetMapping("service/{id}")
-//    public ServiceDetailReponse serviceDetail(@PathVariable int id){
-//        return null;
-//    }
+    @GetMapping("service/{id}")
+    public SeviceDetailDTO serviceDetail(@PathVariable int id){
+        return manageService.getService(id);
+    }
 
-//    @PostMapping("service/{id}")
-//    public ServiceDetailReponse serviceEdit(@PathVariable int id, @RequestBody ServiceDetailReponse service){
-//        return new ServiceDetailReponse();
-//    }
+    @PutMapping("service")
+    public ServiceRequest serviceEdit(@RequestBody ServiceRequest service){
+        return manageService.addService(service);
+    }
+
+    @DeleteMapping("service/{id}")
+    public boolean serviceDelete(@PathVariable int id){
+        return manageService.deleteService(id);
+    }
 
     @GetMapping("room/tus")
     public List<RoomTusReponse> roomTusList(@Param("id") int id){

@@ -4,6 +4,7 @@ import com.esme.spring.faircorp.Response.*;
 import com.esme.spring.faircorp.model.*;
 import com.esme.spring.faircorp.repository.*;
 import com.esme.spring.faircorp.web.Request.IncidentRequest;
+import com.esme.spring.faircorp.web.Request.ServiceRequest;
 import com.esme.spring.faircorp.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -295,6 +296,31 @@ public class ManageService {
         Incident i = new Incident(incidentDTO.getTime(), incidentDTO.getNote(), incidentDTO.getType(), incidentDTO.getImage(), incidentDTO.getStatus(), rO.orElse(null));
         incidentRepository.save(i);
         return incidentDTO;
+    }
+
+    public SeviceDetailDTO getService(int id){
+        Optional<SeviceDetailDTO> sO = serviceRepository.getService(id);
+        return sO.orElse(null);
+    }
+
+    public ServiceRequest addService(ServiceRequest serviceRequest){
+        Optional<Room> rO = roomRepository.findById(serviceRequest.getRoomId());
+        if(rO.isPresent()) {
+            com.esme.spring.faircorp.model.Service newService = new com.esme.spring.faircorp.model.Service(serviceRequest.getName(),  serviceRequest.getPrice(), serviceRequest.getDetail(), rO.get());
+            serviceRepository.save(newService);
+            return serviceRequest;
+        }
+        return null;
+    }
+
+    public boolean deleteService(int id){
+        Optional<com.esme.spring.faircorp.model.Service> serviceO = serviceRepository.findById(id);
+
+        if(serviceO.isPresent()){
+            serviceRepository.delete(serviceO.get());
+            return true;
+        }
+        else return false;
     }
 
 }
