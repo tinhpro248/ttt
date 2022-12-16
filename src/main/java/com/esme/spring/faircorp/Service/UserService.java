@@ -18,9 +18,12 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public LoginReponse login(String username, String password){
+    public LoginReponse login(String username, String password) {
         Optional<Users> u = userRepository.login(username, password);
-        return u.map(users -> new LoginReponse(users.getId(), users.getName(), users.isType(), users.getImage())).orElse(null);
+        if (u.isPresent()) {
+            Users users = u.get();
+            return new LoginReponse(users.getId(), users.getName(), users.isType(), users.getImage());
+        } else return new LoginReponse(0, "n", false, null);
     }
 
     public LoginReponse register(UserRequest user){
